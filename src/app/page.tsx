@@ -43,6 +43,9 @@ export default async function Home() {
         Components, precise hydration, live updates, and client navigations all
         Just Work™ with these APIs.
       </p>
+      <p>
+        You can find the source code for this demo app <a href="https://github.com/get-convex/next13-demo">here</a>.
+      </p>
       <Link href="/preloadChat">
         <h2>usePreloadedQuery()</h2>
       </Link>
@@ -59,8 +62,9 @@ export default async function Home() {
       <h2>useQuery()</h2>
       <p>
         The second API leverages Suspense to provide a better DX for Convex
-        queries within Client Components. Instead of needing to preload their
-        queries, developers can call <code>useQuery</code> directly.
+        queries within Client Components. Client Components get
+        SSR and precise hydration out of the box without any modifications.
+        Instead of needing to preload their queries, developers can simply use <code>useQuery</code> directly.
       </p>
       <JsHighlighter>{useSnippet}</JsHighlighter>
       <p>
