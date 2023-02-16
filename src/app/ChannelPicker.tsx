@@ -30,7 +30,7 @@ export default function ChannelPicker(props: { channels: Document[] }) {
     event.preventDefault();
     setNewChannelName("");
     const id = await addChannel(newChannelName);
-    router.push(`${layoutPath}/${id.toString()}`);
+    // router.push(`${layoutPath}/${id.toString()}`);
   }
 
   return (
