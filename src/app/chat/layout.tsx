@@ -47,31 +47,17 @@ export default async function Layout(props: { children: React.ReactNode }) {
           .
         </p>
         <p>
-          <b>Warning</b>: <code>useQuery</code> uses the{" "}
-          <a href="https://github.com/acdlite/rfcs/blob/first-class-promises/text/0000-first-class-support-for-promises.md">
-            <code>use()</code>
-          </a>{" "}
-          hook and a build from{" "}
-          <a href="https://www.npmjs.com/package/react/v/0.0.0-experimental-758fc7fde-20230207">
-            React's experimental channel
-          </a>
-          . We've observed a{" "}
-          <a href="https://github.com/facebook/react/issues/25964">React bug</a>{" "}
-          when a single component contains more than one <code>useQuery()</code>
-          .
+          In order to send data for hydration in the browser, the hook leverage
+          React streaming, if available. This demonstrate this, the app uses a <a href="https://github.com/vercel/next.js/commit/32242e5e91173de4691a155f3835e80ac15443e5">modified</a> version of NEXT.js that exposes <code>nextInjectIntoStream()</code>. This approach is inspired by {" "}
+            <a href="https://github.com/brillout/rfcs/blob/main/text/0000-inject-to-stream.md">injectToStream RFC</a>. We anticipate this or an alternative to be eventually available in React or NEXT.js.
         </p>
-        <p>
-          <b>Note</b>: Until we can{" "}
-          <a href="https://github.com/brillout/rfcs/blob/main/text/0000-inject-to-stream.md">
-            inject data into React's stream
-          </a>
-          , our server data loading library cannot communicate a variable amount
-          of data to its client counterpart. For now, we work around this issue
-          by having our Convex provider store the snapshot timestamp it uses
-          during SSR. Then during hydration, our library replays the requests at
-          this server timestamp, which prevents hydration mismatches but causes
-          hydration to suspend, delaying TTI. Including the query results in the
-          React stream would allow hydration to complete immediately.
+        <p>The <code>useQuery</code> hook also works with unmodified versions NEXT.js. When the hydration
+          data is not provided in the stream, our library replays the requests
+          at this server timestamp used during SSR. This prevents hydration
+          mismatches but causes hydration to suspend, delaying TTI.{" "}
+          <b>Warning</b>: We have observed the following {" "}
+          <a href="https://github.com/facebook/react/issues/25964">React bug</a>{" "}
+          if there streaming support is not available and there is more than one <code>useQuery()</code> per component.
         </p>
       </article>
     </>
