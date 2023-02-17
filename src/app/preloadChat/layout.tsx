@@ -27,8 +27,8 @@ export default async function Layout(props: { children: React.ReactNode }) {
   const [, listChannels] = await preloadQuery("listChannels");
   return (
     <>
-      <div className="flex flex-col shadow-inner bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4">
-        <div className="flex justify-between items-end border-b border-gray-200 dark:border-gray-700">
+      <div className="flex flex-col shadow-inner bg-zinc-100 dark:bg-zinc-900 rounded-lg">
+        <div className="pt-4 px-4 flex justify-between items-end border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-2xl font-bold">Convex Chat</h2>
           <UserBadge />
         </div>

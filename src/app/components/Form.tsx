@@ -3,12 +3,14 @@ import { FormEventHandler } from "react";
 
 export default function Form({
   buttonLabel,
+  className,
   placeholder,
   value,
   onChange,
   onSubmit,
 }: {
   buttonLabel: string;
+  className?: React.ComponentProps<"form">["className"];
   placeholder: string;
   value: string;
   onChange: (value: string) => void;
@@ -16,11 +18,11 @@ export default function Form({
 }) {
   const isValid = value.length > 0;
   return (
-    <form onSubmit={onSubmit} className="flex">
+    <form onSubmit={onSubmit} className={classNames(className, "flex")}>
       <input
         className="flex-grow py-1 px-2 rounded-md mr-1 border border-zinc-200 dark:border-zinc-800 dark:bg-black h-8"
         value={value}
-        onChange={event => onChange(event.target.value)}
+        onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
       />
       <input

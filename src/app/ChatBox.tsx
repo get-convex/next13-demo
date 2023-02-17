@@ -57,21 +57,31 @@ export default function ChatBox(props: {
   }
 
   return (
-    <div className="flex flex-col flex-grow h-96 p-2">
-      <div className="overflow-y-scroll">
-        <h3>Messages</h3>
+    <div className="flex flex-col flex-grow h-96 py-2">
+      <div className="flex-grow overflow-y-scroll">
+        <h3 className="px-4 pb-1 text-center text-sm">
+          {props.messages.length === 0
+            ? "no messages yet"
+            : "start of the channel"}
+        </h3>
         <ul ref={listRef}>
-          {props.messages.map(message => {
+          {props.messages.map((message) => {
             const isViewer = message.author === user;
             return (
-              <li className="pb-1" key={message._id.toString()}>
+              <li
+                className="group mb-1 px-2 hover:bg-zinc-200/50 rounded-sm"
+                key={message._id.toString()}
+              >
                 <div
-                  className={classNames("flex items-baseline gap-2", {
+                  className={classNames("group flex items-baseline gap-2 ", {
                     "flex-row-reverse": isViewer,
                   })}
                 >
                   <span className="font-bold">{message.author}</span>
-                  <span className="text-xs">
+                  <span
+                    suppressHydrationWarning
+                    className="text-xs hidden group-hover:inline"
+                  >
                     {new Date(message._creationTime).toLocaleTimeString()}
                   </span>
                 </div>
@@ -84,6 +94,7 @@ export default function ChatBox(props: {
         </ul>
       </div>
       <Form
+        className="pl-2 pr-4"
         buttonLabel="Send"
         placeholder="Write a message…"
         value={newMessageText}
