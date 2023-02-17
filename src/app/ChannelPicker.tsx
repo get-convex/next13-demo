@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useMutation } from "../../convex/_generated/react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Form from "./components/Form";
+import classNames from "classnames";
 
 export default function ChannelPicker(props: { channels: Document[] }) {
   const pathname = usePathname();
@@ -34,24 +35,28 @@ export default function ChannelPicker(props: { channels: Document[] }) {
   }
 
   return (
-    <div className="w-80 border-r border-gray-200 dark:border-gray-700 pr-3 pt-1 h-96">
-      <h3 className="p-1 font-bold">Channels</h3>
+    <div className="w-80 border-r border-gray-200 dark:border-gray-700 pt-2 h-96">
+      <h3 className="pl-4 mb-1 text-lg font-bold">Channels</h3>
       <Form
+        className="px-4"
         buttonLabel="Add"
         placeholder="Add a channel..."
         value={newChannelName}
         onSubmit={handleAddChannel}
         onChange={setNewChannelName}
       />
-      <ul className="flex flex-col gap-1 mt-1">
-        {props.channels.map(channel => (
+      <ul className="flex flex-col gap-1 mt-1 px-2">
+        {props.channels.map((channel) => (
           <Link
-            className="block p-1 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-sm"
+            className={classNames(
+              "block py-1 px-2 hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-md",
+              {
+                "bg-zinc-200/50 dark:bg-zinc-800/50":
+                  channel._id.equals(selected),
+              }
+            )}
             href={`${layoutPath}/${channel._id.toString()}`}
             key={channel._id.toString()}
-            style={{
-              fontWeight: channel._id.equals(selected) ? "bold" : "normal",
-            }}
           >
             {channel.name}
           </Link>

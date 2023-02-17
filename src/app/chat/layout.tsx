@@ -13,8 +13,8 @@ function ClientComponent() {
 export default async function Layout(props: { children: React.ReactNode }) {
   return (
     <>
-      <div className="flex flex-col shadow-inner bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4">
-        <div className="flex justify-between items-end border-b border-gray-200 dark:border-gray-700">
+      <div className="flex flex-col shadow-inner bg-zinc-100 dark:bg-zinc-900 rounded-lg">
+        <div className="pt-4 px-4 flex justify-between items-end border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-2xl font-bold">Convex Chat</h2>
           <UserBadge />
         </div>
@@ -48,16 +48,27 @@ export default async function Layout(props: { children: React.ReactNode }) {
         </p>
         <p>
           In order to send data for hydration in the browser, the hook leverage
-          React streaming, if available. This demonstrate this, the app uses a <a href="https://github.com/vercel/next.js/commit/32242e5e91173de4691a155f3835e80ac15443e5">modified</a> version of NEXT.js that exposes <code>nextInjectIntoStream()</code>. This approach is inspired by {" "}
-            <a href="https://github.com/brillout/rfcs/blob/main/text/0000-inject-to-stream.md">injectToStream RFC</a>. We anticipate this or an alternative to be eventually available in React or NEXT.js.
+          React streaming, if available. This demonstrate this, the app uses a{" "}
+          <a href="https://github.com/vercel/next.js/commit/32242e5e91173de4691a155f3835e80ac15443e5">
+            modified
+          </a>{" "}
+          version of NEXT.js that exposes <code>nextInjectIntoStream()</code>.
+          This approach is inspired by{" "}
+          <a href="https://github.com/brillout/rfcs/blob/main/text/0000-inject-to-stream.md">
+            injectToStream RFC
+          </a>
+          . We anticipate this or an alternative to be eventually available in
+          React or NEXT.js.
         </p>
-        <p>The <code>useQuery</code> hook also works with unmodified versions NEXT.js. When the hydration
-          data is not provided in the stream, our library replays the requests
-          at this server timestamp used during SSR. This prevents hydration
-          mismatches but causes hydration to suspend, delaying TTI.{" "}
-          <b>Warning</b>: We have observed the following {" "}
+        <p>
+          The <code>useQuery</code> hook also works with unmodified versions
+          NEXT.js. When the hydration data is not provided in the stream, our
+          library replays the requests at this server timestamp used during SSR.
+          This prevents hydration mismatches but causes hydration to suspend,
+          delaying TTI. <b>Warning</b>: We have observed the following{" "}
           <a href="https://github.com/facebook/react/issues/25964">React bug</a>{" "}
-          if there streaming support is not available and there is more than one <code>useQuery()</code> per component.
+          if there streaming support is not available and there is more than one{" "}
+          <code>useQuery()</code> per component.
         </p>
       </article>
     </>
