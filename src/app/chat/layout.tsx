@@ -67,7 +67,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
           This prevents hydration mismatches but causes hydration to suspend,
           delaying TTI. <b>Warning</b>: We have observed the following{" "}
           <a href="https://github.com/facebook/react/issues/25964">React bug</a>{" "}
-          if injectToStream is not available and more than one{" "}
+          when <code>nextInjectIntoStream()</code> is not available and more than one{" "}
           <code>useQuery()</code> hook suspend during hydration.
         </p>
       </article>
