@@ -48,16 +48,16 @@ export default async function Layout(props: { children: React.ReactNode }) {
         </p>
         <p>
           In order to send data for hydration in the browser, the hook leverage
-          React streaming, if available. This demonstrate this, the app uses a{" "}
+          React streaming, if available. To demonstrate this, the app uses a{" "}
           <a href="https://github.com/vercel/next.js/commit/32242e5e91173de4691a155f3835e80ac15443e5">
             modified
           </a>{" "}
           version of NEXT.js that exposes <code>nextInjectIntoStream()</code>.
-          This approach is inspired by{" "}
+          The approach is inspired by{" "}
           <a href="https://github.com/brillout/rfcs/blob/main/text/0000-inject-to-stream.md">
             injectToStream RFC
           </a>
-          . We anticipate this or an alternative to be eventually available in
+          . We anticipate the ability to inject to the React stream or an alternative to be eventually available in
           React or NEXT.js.
         </p>
         <p>
