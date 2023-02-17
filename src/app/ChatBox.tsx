@@ -69,7 +69,7 @@ export default function ChatBox(props: {
             const isViewer = message.author === user;
             return (
               <li
-                className="group mb-1 px-2 hover:bg-zinc-200/50 rounded-sm"
+                className="group mb-1 px-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-sm"
                 key={message._id.toString()}
               >
                 <div

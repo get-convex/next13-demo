@@ -49,8 +49,11 @@ export default function ChannelPicker(props: { channels: Document[] }) {
         {props.channels.map((channel) => (
           <Link
             className={classNames(
-              "block py-1 px-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-md",
-              { "bg-zinc-200/50": channel._id.equals(selected) }
+              "block py-1 px-2 hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-md",
+              {
+                "bg-zinc-200/50 dark:bg-zinc-800/50":
+                  channel._id.equals(selected),
+              }
             )}
             href={`${layoutPath}/${channel._id.toString()}`}
             key={channel._id.toString()}
