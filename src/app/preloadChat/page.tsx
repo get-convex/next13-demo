@@ -14,10 +14,9 @@ export default async function ChatPage() {
   const PageContents_ = PageContents as any;
   return (
     <div className="flex justify-center flex-grow items-center">
-      {/* <ReactiveServerContext>
+      <ReactiveServerContext>
         <PageContents_ />
-      </ReactiveServerContext> */}
-      hi
+      </ReactiveServerContext>
     </div>
   );
 }
