@@ -21,7 +21,7 @@ export default function ChannelPickerUI(props: {
   let layoutPath = pathname;
   let selected = props.defaultChannel;
   if (pathname && layoutSegment) {
-    layoutPath = pathname.slice(0, -layoutSegment.length);
+    layoutPath = pathname.slice(0, -(layoutSegment.length + 1));
     selected = new Id("channels", layoutSegment);
   }
 

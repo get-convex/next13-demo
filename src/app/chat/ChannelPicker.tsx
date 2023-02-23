@@ -5,11 +5,10 @@ import ChannelPickerUI from "../ChannelPickerUI";
 
 export default function ChannelPicker() {
   const channels = useQuery("listChannels");
-  const defaultChannelId = useQuery("listChannels:defaultChannel");
   return (
     <ChannelPickerUI
       channels={channels}
-      defaultChannel={defaultChannelId}
+      defaultChannel={channels[0]._id}
     ></ChannelPickerUI>
   );
 }

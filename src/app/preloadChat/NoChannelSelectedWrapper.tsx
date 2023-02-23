@@ -5,5 +5,5 @@ import ChatBoxWrapper from "./[channel]/ChatBoxWrapper";
 export default async function NoChannelSelectedWrapper() {
   const [defaultChannelId] = await preloadQuery("listChannels:defaultChannel");
   // @ts-expect-error async Server Component
-  return <ChatBoxWrapper channel={defaultChannelId} />;
+  return <ChatBoxWrapper channel={defaultChannelId.id} />;
 }

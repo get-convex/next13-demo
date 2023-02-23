@@ -16,7 +16,7 @@ export default async function ChannelPickerWrapper() {
 const preloadSnippetClient = `
 "use client";
 export default function ChannelPicker({ listChannels }) {
-  const channels = usePreloadedQuery(props.listChannels);
+  const channels = usePreloadedQuery(listChannels);
   ...
 }
 `.trim();
