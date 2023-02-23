@@ -13,7 +13,7 @@ export default function Menu() {
       <MenuItem href="/preloadChat" selected={selected}>
         Props-based SSR
       </MenuItem>
-      <MenuItem href="/serverCounter" selected={selected}>
+      <MenuItem href="/serverCounter" selected={selected} forceRefresh>
         Server Components
       </MenuItem>
     </ul>
