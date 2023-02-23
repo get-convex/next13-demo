@@ -8,17 +8,20 @@ import { useState } from "react";
 
 import { useMutation } from "../../convex/_generated/react";
 import { useSelectedLayoutSegment } from "next/navigation";
-import Form from "./components/Form";
+import Form from "../components/Form";
 import classNames from "classnames";
 
-export default function ChannelPicker(props: { channels: Document[] }) {
+export default function ChannelPickerUI(props: {
+  channels: Document[];
+  defaultChannel: Id<"channels">;
+}) {
   const pathname = usePathname();
   const layoutSegment = useSelectedLayoutSegment();
 
   let layoutPath = pathname;
-  let selected: null | Id<"channels"> = null;
+  let selected = props.defaultChannel;
   if (pathname && layoutSegment) {
-    layoutPath = pathname.slice(0, -layoutSegment.length);
+    layoutPath = pathname.slice(0, -(layoutSegment.length + 1));
     selected = new Id("channels", layoutSegment);
   }
 

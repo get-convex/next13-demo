@@ -5,9 +5,9 @@ import { Id, Document } from "../../convex/_generated/dataModel";
 import { useMutation } from "../../convex/_generated/react";
 import { useContext, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import Form from "./components/Form";
+import Form from "../components/Form";
 
-export default function ChatBox(props: {
+export default function ChatBoxUI(props: {
   channel: string;
   messages: Document[];
 }) {
@@ -69,7 +69,7 @@ export default function ChatBox(props: {
             const isViewer = message.author === user;
             return (
               <li
-                className="group mb-1 px-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-sm"
+                className="group mb-1 px-4 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-sm"
                 key={message._id.toString()}
               >
                 <div
