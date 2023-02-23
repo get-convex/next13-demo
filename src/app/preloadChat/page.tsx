@@ -1,22 +1,6 @@
-import { reactiveServerQuery } from "../_generated";
-import { ReactiveServerContext } from "@convex-dev/next-experimental";
+import NoChannelSelectedWrapper from "./NoChannelSelectedWrapper";
 
-async function PageContents() {
-  const count = await reactiveServerQuery("listChannels:countChannels");
-  return (
-    <>
-      Pick a channel on the left ({count} choices)
-    </>
-  )
-}
-
-export default async function ChatPage() {
-  const PageContents_ = PageContents as any;
-  return (
-    <div className="flex justify-center flex-grow items-center">
-      <ReactiveServerContext>
-        <PageContents_ />
-      </ReactiveServerContext>
-    </div>
-  );
+export default async function NoChannelSelectedPage() {
+  // @ts-expect-error async Server Component
+  return <NoChannelSelectedWrapper />;
 }

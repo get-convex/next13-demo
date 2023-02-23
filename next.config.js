@@ -4,6 +4,9 @@ const nextConfig = {
     appDir: true,
     runtime: "edge",
   },
+  async redirects() {
+    return [{ source: "/", destination: "/chat", permanent: false }];
+  },
 };
 
 module.exports = nextConfig;

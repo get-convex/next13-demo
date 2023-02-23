@@ -1,5 +1,7 @@
-import ChatBox from "./UseQueryChatBox";
+import ChatBox from "./ChatBox";
 
-export default async function ChatPage(props: { params: { channel: string } }) {
+export default async function ChannelChat(props: {
+  params: { channel: string };
+}) {
   return <ChatBox channel={props.params.channel} />;
 }
