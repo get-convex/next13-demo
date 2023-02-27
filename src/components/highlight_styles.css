@@ -1,0 +1,16 @@
+@import "prismjs/themes/prism.css" (prefers-color-scheme: light);
+@import "prismjs/themes/prism-tomorrow.css" (prefers-color-scheme: dark);
+
+.prismjs {
+  font-size: 14px;
+}
+
+.prismjs .linenumber {
+  color: #999;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prismjs .linenumber {
+    color: #ccc;
+  }
+}
