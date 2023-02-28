@@ -13,7 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@convex-dev/next-experimental": "0.9.8",
+    "@convex-dev/next-experimental": "0.10.2",
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
